@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--This is where I linked the style sheet and bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/cartStyle.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js"></script>
+    <script src="scripts/cartScript.js"></script>
+    <title> Mina's shoe shop </title>
+  </head>
+  <body class="container" onload="pageLoad()">
+    <ul id="accordion" class="accordion navbar-brand">
+      <li>
+        <div class="item">Account <i class="fas fa-chevron-down"></i>
+        </div>
+        <ul class="subItems">
+          <li>
+            <a href="#">Profile</a>
+          </li>
+          <li>
+            <a href="#">Orders</a>
+          </li>
+          <li>
+            <a href="#">Security</a>
+          </li>
+          <li>
+            <a href="#">Support</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <!--I Have added the logo that I took from the internet-->
+    <div id="logo">
+      <img id="logoImg" src="images/brand.png">
+    </div>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="catalogue.html"> Home </a>
+      <a class="navbar-brand" href="#"> New arrivals </a>
+      <a class="navbar-brand" href="#"> Brands </a>
+      <a class="navbar-brand" href="#"> Cart </a>
+      <a class="navbar-brand" href="#"> Contact us </a>
+    </nav>
+    <!--I Have added shopping cart section-->
+    <h1 id="mainHeading">Shopping Cart</h1>
+    <div id="cartPageContent" class="row">
+      <aside class="col-lg-9">
+        <div class="card">
+          <!--I Have added a responsive table-->
+          <div class="table-responsive">
+            <table id="cartTable" class="table table-borderless">
+              <thead>
+                <tr>
+                  <th width="300"></th>
+                  <th width="150">Quantity</th>
+                  <th width="150">Unit Price(ex VAT)</th>
+                  <th width="150">Total Price(ex VAT)</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="cartTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </aside>
+      <aside class="col-lg-3 pull-right">
+        <div class="card mb-3">
+          <div class="card-body">
+            <form>
+              <!--I Have added a form-->
+              <div class="form-group">
+                <label>Have coupon?</label>
+                <div class="input-group">
+                  <input id="txtCouponCode" type="text" class="form-control coupon" placeholder="Coupon code">
+                  <span class="input-group-append">
+                    <button id="btnApplyCoupon" type="button" class="btn btn-primary btn-apply coupon">Apply</button>
+                  </span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5>Collection or Delivery?</h5>
+            <div class="form-check">
+              <label class="form-check-label" for="radioDeliveryOption1">
+                <input type="radio" class="form-check-input" id="radioDeliveryOption1" name="optradio" value="collection">Collection (Free) </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label" for="radioDeliveryOption2">
+                <input type="radio" class="form-check-input" id="radioDeliveryOption2" name="optradio" value="courier1">Courier 1 </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label" for="radioDeliveryOption3">
+                <input type="radio" class="form-check-input" id="radioDeliveryOption3" name="optradio" value="courier2">Courier 2 </label>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <dl class="dlist-align">
+              <dt>Total price:</dt>
+              <dd id="netPrice" class="text-right ml-3"></dd>
+            </dl>
+            <dl class="dlist-align">
+              <dt>Discount:</dt>
+              <dd id="discountAmount" class="text-right text-danger ml-3"></dd>
+            </dl>
+            <dl class="dlist-align">
+              <dt>VAT(15%):</dt>
+              <dd id="vatAmount" class="text-right text ml-3"></dd>
+            </dl>
+            <dl class="dlist-align">
+              <dt>Total:</dt>
+              <dd class="text-right text-dark b ml-3">
+                <strong id="totalPurchasePrice"></strong>
+              </dd>
+            </dl>
+            <hr>
+            <button id="btnConfirmOrder" type="button" class="btn btn-primary"> Confirm Order </button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </body>
+</html>
